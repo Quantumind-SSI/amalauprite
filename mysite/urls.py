@@ -13,7 +13,8 @@ from django.views.generic import TemplateView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include('myapp.urls')),
+    path('', TemplateView.as_view(template_name="myapp/landing.html"), name='landing_root'),
+    path('app/', include('myapp.urls')),
     path('users/', include('users.urls')),
     path("how-to-use/", TemplateView.as_view(template_name="myapp/how_to_use.html"), name="how_to_use"),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

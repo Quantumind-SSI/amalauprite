@@ -12,17 +12,20 @@ urlpatterns = [
     path('management/add/', views.create_item, name='create_item'),
     path('management/update/<int:id>/', views.update_item, name='item_update'),
     path('management/delete/<int:id>/', views.delete_item, name='item_delete'), 
-    path('management/dashboard/', views.staff_dashboard, name='staff_dashboard'), 
+    path('management/dashboard/', views.staff_dashboard, name='staff_dashboard'),
+    # POST-only: status changes mark orders paid — must not be triggerable via GET links
     path('management/order/<int:order_id>/status/<str:new_status>/', views.update_order_status, name='update_order_status'),
     # NEW QR CODE ROUTE (No changes here)
     path('management/qr/<str:table_id>/', views.generate_qr_code, name='generate_qr_code'),
 
     # --- Customer Facing Views ---
+    path('landing/', views.landing, name='landing'),
     path('', views.menu, name='menu'), # Public-facing Menu (Unfiltered/All)
     # UPDATED: Added <str:username>/ to allow filtering the menu by the restaurant owner
     path('menu/<str:username>/<str:table_id>/', views.menu, name='menu_with_table'), # QR Code Landing Spot
     path('cart/', views.view_cart, name='view_cart'),
     path('cart/add/<int:item_id>/', views.add_to_cart, name='add_to_cart'),
+    path('cart/remove/<int:item_id>/', views.remove_from_cart, name='remove_from_cart'),
+    path('cart/clear/', views.clear_cart, name='clear_cart'),
     path('checkout/', views.checkout, name='checkout'),
-    path('checkout/success/', views.checkout, name='checkout_success'), 
 ]
