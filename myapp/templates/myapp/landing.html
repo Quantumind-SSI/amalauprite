@@ -4,152 +4,170 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>FoodApp — QR Digital Menu & Ordering</title>
+<title>Amalatouprite — Amala & More | QR Digital Menu</title>
+<meta name="description" content="Amalatouprite restaurant QR digital menu. Scan table QR to order amala, rice, soups and more. Live kitchen dashboard for staff.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
-:root{--page:#f7f5f2;--ink:#1a1a1a;--muted:#6b6b6b;--orange:#e64a19;--orange2:#bf360c;--card:#ffffff;--brand:#1f2937}
+:root{--bg:#faf8f5;--ink:#1c1917;--muted:#6b7280;--brand:#1f2937;--accent:#d97706;--accent-2:#b45309;--card:#ffffff;--line:#e7e5e4}
 *{box-sizing:border-box}
-html,body{margin:0;background:var(--page);color:var(--ink);font-family:"Helvetica Neue",Arial,sans-serif;-webkit-font-smoothing:antialiased}
+html,body{margin:0;background:var(--bg);color:var(--ink);font-family:"Plus Jakarta Sans",system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;-webkit-font-smoothing:antialiased}
 a{color:inherit;text-decoration:none}
-.nav{position:sticky;top:0;z-index:1000;background:rgba(255,255,255,.9);backdrop-filter:blur(10px);border-bottom:1px solid #eee}
-.nav-inner{max-width:1200px;margin:0 auto;padding:14px 24px;display:flex;align-items:center;justify-content:space-between}
-.logo{font-weight:800;font-size:18px;display:flex;align-items:center;gap:10px}
-.logo-dot{width:28px;height:28px;border-radius:8px;background:linear-gradient(135deg,var(--orange),var(--orange2));box-shadow:0 4px 12px rgba(230,74,25,.35)}
-.nav a{margin-left:22px;font-weight:600;color:var(--brand);opacity:.85}
-.nav a:hover{opacity:1}
-.hero{max-width:1200px;margin:0 auto;padding:64px 24px 24px;display:grid;grid-template-columns:1.1fr .9fr;gap:48px;align-items:center}
-.hero h1{font-size:48px;line-height:1.1;margin:0 0 16px}
-.hero p{font-size:18px;color:var(--muted);margin:0 0 28px}
-.cta-row{display:flex;gap:14px;flex-wrap:wrap}
-.btn{background:var(--orange);color:#fff;padding:14px 24px;border-radius:14px;font-weight:700;box-shadow:0 4px 16px rgba(230,74,25,.35);transition:.15s}
-.btn:hover{transform:translateY(-1px)}
-.btn.ghost{background:#fff;color:var(--orange);border:2px solid var(--orange);box-shadow:0 4px 14px rgba(0,0,0,.06)}
-.poster-wrap{position:relative;border-radius:22px;overflow:hidden;box-shadow:0 20px 60px rgba(0,0,0,.18);background:#fff}
-.poster{position:relative;width:100%;aspect-ratio:1280/2240;container-type:inline-size;overflow:hidden;background:#fff}
-.poster>svg.bg{position:absolute;inset:0;width:100%;height:100%;display:block}
-.bowl{position:absolute;aspect-ratio:1;border-radius:50%;background:radial-gradient(circle at 35% 30%,#2a2626,#0c0909 70%);box-shadow:1.8cqw 2.2cqw 2.8cqw rgba(0,0,0,.38);padding:4%;box-sizing:border-box;overflow:hidden;isolation:isolate}
-.bowl.big{padding:6%}
-.slot{position:relative;width:100%;height:100%;border-radius:50%;overflow:hidden;background:radial-gradient(circle at 40% 35%,#8a7f78,#4b4440);display:flex;align-items:center;justify-content:center}
-.slot img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
-.section{max-width:1200px;margin:72px auto;padding:0 24px}
-.section h2{font-size:32px;margin:0 0 24px;text-align:center}
-.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
-.card{background:var(--card);border-radius:18px;padding:24px;box-shadow:0 8px 24px rgba(0,0,0,.06);border:1px solid #f0ede8}
+img{max-width:100%;display:block}
+.container{max-width:1200px;margin:0 auto;padding:0 24px}
+
+/* Nav */
+.nav{position:sticky;top:0;z-index:1000;background:rgba(255,255,255,.9);backdrop-filter:saturate(180%) blur(12px);border-bottom:1px solid var(--line)}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;padding:14px 0}
+.brand{display:flex;align-items:center;gap:12px;font-weight:800;letter-spacing:.2px}
+.mark{width:34px;height:34px;border-radius:10px;background:linear-gradient(135deg,var(--accent),var(--accent-2));box-shadow:0 6px 16px rgba(217,119,6,.32)}
+.nav-links{display:flex;gap:26px;font-weight:600}
+.nav-links a{opacity:.85}
+.nav-links a:hover{opacity:1}
+
+/* Hero */
+.hero{display:grid;grid-template-columns:1.1fr .9fr;gap:56px;align-items:center;padding:72px 0 24px}
+.eyebrow{display:inline-flex;gap:8px;align-items:center;background:#fff3e0;border:1px solid #ffedd5;color:#9a3412;padding:6px 12px;border-radius:999px;font-size:13px;font-weight:700;letter-spacing:.3px}
+.hero h1{font-size:54px;line-height:1.05;margin:14px 0 16px;letter-spacing:-.02em}
+.hero p{font-size:18px;color:var(--muted);margin:0 0 28px;max-width:56ch}
+.cta{display:flex;gap:14px;flex-wrap:wrap}
+.btn{padding:14px 24px;border-radius:14px;font-weight:750;transition:.15s}
+.btn.primary{background:var(--accent);color:#fff;box-shadow:0 8px 22px rgba(217,119,6,.36)}
+.btn.primary:hover{transform:translateY(-1px)}
+.btn.ghost{background:#fff;color:var(--brand);border:1.5px solid var(--line);box-shadow:0 4px 14px rgba(0,0,0,.05)}
+.btn.ghost:hover{border-color:var(--accent);color:var(--accent)}
+
+/* Poster */
+.poster-wrap{background:#fff;border:1px solid var(--line);border-radius:24px;box-shadow:0 24px 60px rgba(0,0,0,.12);overflow:hidden}
+.poster{position:relative;width:100%;aspect-ratio:1280/2240;overflow:hidden}
+.poster svg{position:absolute;inset:0;width:100%;height:100%}
+.bowl{position:absolute;aspect-ratio:1;border-radius:50%;background:radial-gradient(circle at 35% 30%,#2a2626,#0c0909 70%);box-shadow:1.6cqw 1.9cqw 2.4cqw rgba(0,0,0,.38);padding:4%;overflow:hidden}
+.slot{width:100%;height:100%;border-radius:50%;overflow:hidden;background:radial-gradient(circle at 40% 35%,#8a7f78,#4b4440)}
+.slot img{width:100%;height:100%;object-fit:cover}
+
+/* Sections */
+.section{padding:84px 0}
+.section h2{font-size:36px;margin:0 0 28px;text-align:center;letter-spacing:-.01em}
+.grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:26px;box-shadow:0 8px 24px rgba(0,0,0,.05)}
 .card h3{margin:0 0 8px;font-size:20px}
 .card p{margin:0;color:var(--muted)}
-.steps{display:grid;grid-template-columns:repeat(5,1fr);gap:16px;margin-top:32px}
-.step{position:relative;padding:20px 16px;background:#fff;border-radius:16px;box-shadow:0 6px 18px rgba(0,0,0,.06);text-align:center}
-.step b{display:block;font-size:28px;color:var(--orange)}
-.step span{color:var(--muted);font-size:14px}
-.showcase{display:grid;grid-template-columns:1.2fr .8fr;gap:32px;align-items:center;background:#fff;border-radius:22px;padding:28px;box-shadow:0 12px 34px rgba(0,0,0,.06)}
-.showcase img{width:100%;border-radius:16px;box-shadow:0 10px 30px rgba(0,0,0,.12)}
-.footer{margin-top:90px;background:#111;color:#ddd;padding:48px 24px;text-align:center;font-size:14px}
+
+/* Steps */
+.steps{display:grid;grid-template-columns:repeat(5,1fr);gap:18px;margin-top:36px}
+.step{background:#fff;border:1px solid var(--line);border-radius:18px;padding:22px;text-align:center;box-shadow:0 6px 18px rgba(0,0,0,.04)}
+.step .num{display:block;font-size:30px;font-weight:800;color:var(--accent);margin-bottom:6px}
+.step .label{color:var(--muted);font-weight:600;font-size:14px}
+
+/* Journey */
+.journey{display:grid;grid-template-columns:1.1fr .9fr;gap:32px;align-items:center;background:#fff;border:1px solid var(--line);border-radius:24px;padding:32px;box-shadow:0 12px 34px rgba(0,0,0,.06)}
+.journey h3{margin:0 0 12px;font-size:24px}
+.journey p{color:var(--muted);line-height:1.7}
+
+/* Footer */
+.footer{margin-top:96px;background:#111;color:#e5e7eb;padding:56px 0;text-align:center;font-size:14px}
 .footer a{color:#fff;opacity:.85}
-@media (max-width:1024px){.hero{grid-template-columns:1fr}.steps{grid-template-columns:repeat(3,1fr)}.showcase{grid-template-columns:1fr}}
-@media (max-width:768px){.hero h1{font-size:36px}.grid{grid-template-columns:1fr}.steps{grid-template-columns:repeat(2,1fr)}}
+.footer a:hover{opacity:1}
+
+/* Responsive */
+@media (max-width:1024px){.hero{grid-template-columns:1fr}.steps{grid-template-columns:repeat(3,1fr)}.journey{grid-template-columns:1fr}}
+@media (max-width:768px){.hero h1{font-size:40px}.grid-3{grid-template-columns:1fr}.steps{grid-template-columns:repeat(2,1fr)}}
 </style>
 </head>
 <body>
-<div class="nav">
-<div class="nav-inner">
-<div class="logo"><div class="logo-dot"></div>FoodApp</div>
-<div>
+<header class="nav">
+<div class="container nav-inner">
+<div class="brand"><div class="mark"></div>Amalatouprite</div>
+<nav class="nav-links">
 <a href="#features">Features</a>
 <a href="#how">How it works</a>
 <a href="/app/menu/">Menu</a>
-<a href="/users/login/">Staff Login</a>
+<a href="/users/login/">Staff</a>
+</nav>
 </div>
-</div>
-</div>
+</header>
 
-<section class="hero">
+<section class="container hero">
 <div>
-<h1>Scan. Order. Enjoy.</h1>
-<p>QR-based digital menu & kitchen ordering for restaurants. Customers scan a table QR, browse the menu, and place orders instantly. Staff manage menu, track orders, and view revenue in real-time.</p>
-<div class="cta-row">
-<a class="btn" href="#how">See How It Works</a>
-<a class="btn ghost" href="/users/register/">Create Staff Account</a>
+<span class="eyebrow">Amala • Rice • Soups • Small Chops</span>
+<h1>Scan the table, order in seconds.</h1>
+<p>Amalatouprite serves authentic Nigerian comfort food with a modern QR ordering experience. Customers scan, browse, and order — kitchen sees it instantly.</p>
+<div class="cta">
+<a class="btn primary" href="#how">See how it works</a>
+<a class="btn ghost" href="/users/register/">Create staff account</a>
 </div>
 </div>
 <div class="poster-wrap">
 <div class="poster" id="poster">
-<svg class="bg" viewBox="0 0 1280 2240" preserveAspectRatio="none" aria-hidden="true">
+<svg viewBox="0 0 1280 2240" preserveAspectRatio="none" aria-hidden="true">
 <defs>
-<linearGradient id="wh" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#ffffff"/><stop offset="1" stop-color="#f2efe9"/></linearGradient>
-<linearGradient id="rd" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#e64a19"/><stop offset=".55" stop-color="#d84315"/><stop offset="1" stop-color="#bf360c"/></linearGradient>
-<filter id="grain"><feTurbulence type="fractalNoise" baseFrequency=".9" numOctaves="2" result="n"/><feColorMatrix type="saturate" values="0"/><feComponentTransfer><feFuncA type="linear" slope=".08"/></feComponentTransfer><feComposite in2="SourceGraphic" operator="in"/></filter>
-<filter id="rough"><feTurbulence type="fractalNoise" baseFrequency=".035 .12" numOctaves="3" seed="4"/><feDisplacementMap in="SourceGraphic" scale="16"/></filter>
+<linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#ffffff"/><stop offset="1" stop-color="#f7f3ee"/></linearGradient>
+<filter id="g"><feTurbulence type="fractalNoise" baseFrequency=".9" numOctaves="2"/><feColorMatrix type="saturate" values="0"/><feComponentTransfer><feFuncA type="linear" slope=".06"/></feComponentTransfer><feComposite in2="SourceGraphic" operator="in"/></filter>
 </defs>
-<rect width="1280" height="2240" fill="url(#wh)"/>
-<path fill="url(#rd)" d="M540,0 L1280,0 L1280,2240 L560,2240 C640,2150 760,2060 800,1960 C850,1840 800,1660 720,1580 C650,1510 640,1420 700,1340 C760,1260 760,1150 730,1050 C700,950 640,900 690,840 C760,760 790,680 740,590 C690,490 560,420 545,300 C535,200 540,100 540,0 Z"/>
-<path d="M540,0 L1280,0 L1280,2240 L560,2240 C640,2150 760,2060 800,1960 C850,1840 800,1660 720,1580 C650,1510 640,1420 700,1340 C760,1260 760,1150 730,1050 C700,950 640,900 690,840 C760,760 790,680 740,590 C690,490 560,420 545,300 C535,200 540,100 540,0 Z" fill="#fff" filter="url(#grain)"/>
-<g fill="#e64a19" id="dots"></g>
-<g fill="none" stroke="#e64a19" stroke-linecap="round" filter="url(#rough)">
-<path d="M620,1365 C470,1380 330,1470 290,1640 C270,1790 360,1900 540,1930" stroke-width="46"/>
-<path d="M590,1445 C480,1480 410,1540 400,1620" stroke-width="26"/>
-<path d="M340,1640 C340,1780 420,1860 520,1880" stroke-width="30" opacity=".9"/>
-<path d="M575,2185 C530,2215 480,2230 430,2240" stroke-width="22"/>
-<path d="M720,2150 C660,2190 610,2215 560,2240" stroke-width="14"/>
-</g>
-<g fill="#6aa229" id="greens" opacity=".85"></g>
+<rect width="1280" height="2240" fill="url(#bg)"/>
+<rect width="1280" height="2240" fill="#fff" filter="url(#g)"/>
 </svg>
 <div id="stage"></div>
 </div>
 </div>
 </section>
 
-<section class="section" id="features">
-<h2>All-in-one restaurant OS</h2>
-<div class="grid">
-<div class="card"><h3>QR Menus</h3><p>Auto-generated per-table QR codes. Customers scan and see your menu instantly, no app install required.</p></div>
-<div class="card"><h3>Live Kitchen Dashboard</h3><p>Orders appear in real-time. Track Pending → Preparing → Completed with revenue and best-sellers.</p></div>
-<div class="card"><h3>Multi-tenant Staff</h3><p>Each restaurant owner manages their own menu, items, and orders. Secure multi-tenant isolation.</p></div>
-<div class="card"><h3>Session Cart</h3><p>Fast add-to-cart with quantity controls. No login required for customers, checkout creates orders.</p></div>
-<div class="card"><h3>Menu Management</h3><p>CRUD food items with images, prices, availability toggle. Staff dashboard for daily control.</p></div>
-<div class="card"><h3>Clean Design</h3><p>Web-first layout, responsive and fast. Tailwind-style polish without the bloat.</p></div>
+<section class="section">
+<div class="container">
+<h2>Restaurant-first ordering</h2>
+<div class="grid-3">
+<div class="card"><h3>Table QR Menus</h3><p>Unique QR per table. Guests scan, view Amala staples and soups, add to cart, and place orders without apps or cashiers.</p></div>
+<div class="card"><h3>Live Kitchen Dashboard</h3><p>Orders flow Pending → Preparing → Completed. Track revenue, best-sellers, and table activity in real time.</p></div>
+<div class="card"><h3>Staff Control</h3><p>Manage items, prices, and availability. Multi-tenant isolation means each restaurant owns its menu and orders.</p></div>
+</div>
 </div>
 </section>
 
 <section class="section" id="how">
-<h2>How it works</h2>
+<div class="container">
+<h2>Customer & Staff Journey</h2>
 <div class="steps">
-<div class="step"><b>1</b><span>Scan QR</span></div>
-<div class="step"><b>2</b><span>Browse Menu</span></div>
-<div class="step"><b>3</b><span>Add to Cart</span></div>
-<div class="step"><b>4</b><span>Place Order</span></div>
-<div class="step"><b>5</b><span>Kitchen Fulfills</span></div>
+<div class="step"><span class="num">1</span><span class="label">Scan QR at table</span></div>
+<div class="step"><span class="num">2</span><span class="label">Browse Amalatouprite menu</span></div>
+<div class="step"><span class="num">3</span><span class="label">Add to cart & checkout</span></div>
+<div class="step"><span class="num">4</span><span class="label">Order appears in kitchen</span></div>
+<div class="step"><span class="num">5</span><span class="label">Food delivered</span></div>
 </div>
-<div class="showcase">
+
+<div class="journey" style="margin-top:28px">
 <div>
-<h3>Customer Journey</h3>
-<p>Table QR → /menu/<username>/<table_id>/ → filter available items → add to cart → checkout → order appears on staff dashboard instantly. Table number persists in session for seamless flow.</p>
-<p style="margin-top:16px;color:var(--muted)">Staff Journey: Register → Login → /management/ → Create items → Generate QR → View orders → Update status → Track revenue.</p>
+<h3>For Guests</h3>
+<p>Find the table number, open the QR link, pick from Pounded Yam, Efo Riro, Jollof Rice, etc. Quantity controls, notes, and instant checkout. Table context is saved in session — no login required.</p>
+<h3 style="margin-top:22px">For Staff</h3>
+<p>Register → Login → Management Dashboard → Create items with images and price → Generate per-table QR → Monitor orders → Update status → View daily revenue and best-sellers.</p>
 </div>
 <div>
-<img src="{% static 'myapp/images/plate1.jpg' %}" alt="Plate showcase">
+<img src="{% static 'myapp/images/plate1.jpg' %}" alt="Amalatouprite plate" loading="lazy">
+</div>
 </div>
 </div>
 </section>
 
-<div class="footer">
-FoodApp — QR Digital Menu & Ordering<br>
-<a href="/app/menu/">Browse Public Menu</a> • <a href="/users/register/">Create Staff Account</a> • <a href="/users/login/">Staff Login</a>
+<footer class="footer">
+<div class="container">
+Amalatouprite — Authentic Nigerian Food, Modern Ordering<br>
+<a href="/app/menu/">Browse Menu</a> • <a href="/users/register/">Staff Sign Up</a> • <a href="/users/login/">Staff Login</a>
 </div>
+</footer>
 
 <script>
 const W=1280,H=2240;
-const BOWLS=[[667,125,262,"Dish 1",0],[848,380,232,"Dish 2",0],[515,625,392,"Dish 3",1],[922,790,268,"Dish 4",0],[660,1055,362,"Dish 5",1],[935,1405,378,"Dish 6",1],[640,1740,420,"Dish 7",1]];
-const IMAGES=["{% static 'myapp/images/plate1.jpg' %}","{% static 'myapp/images/plate2.jpg' %}","{% static 'myapp/images/plate3.jpg' %}","{% static 'myapp/images/plate4.jpg' %}","{% static 'myapp/images/plate5.jpg' %}","{% static 'myapp/images/plate6.jpg' %}","{% static 'myapp/images/plate7.jpg' %}"];
+const BOWLS=[[667,125,262],[848,380,232],[515,625,392],[922,790,268],[660,1055,362],[935,1405,378],[640,1740,420]];
+const IMGS=["{% static 'myapp/images/plate1.jpg' %}","{% static 'myapp/images/plate2.jpg' %}","{% static 'myapp/images/plate3.jpg' %}","{% static 'myapp/images/plate4.jpg' %}","{% static 'myapp/images/plate5.jpg' %}","{% static 'myapp/images/plate6.jpg' %}","{% static 'myapp/images/plate7.jpg' %}"];
 const stage=document.getElementById('stage');
 BOWLS.forEach((b,i)=>{
-const d=document.createElement('div');d.className='bowl'+(b[4]?' big':'');
+const d=document.createElement('div');d.className='bowl';
 d.style.width=(b[2]/W*100)+'%';d.style.left=((b[0]-b[2]/2)/W*100)+'%';d.style.top=((b[1]-b[2]/2)/H*100)+'%';
 const s=document.createElement('div');s.className='slot';
-if(IMAGES[i]){const im=document.createElement('img');im.src=IMAGES[i];im.loading='lazy';s.appendChild(im);}else{s.innerHTML='<span>'+b[3]+'</span>'}
+const im=document.createElement('img');im.src=IMGS[i];im.alt='Dish '+ (i+1);im.loading='lazy';s.appendChild(im);
 d.appendChild(s);stage.appendChild(d);
 });
-function dots(id,pts){const g=document.getElementById(id);pts.forEach(p=>{const c=document.createElementNS('http://www.w3.org/2000/svg','circle');c.setAttribute('cx',p[0]);c.setAttribute('cy',p[1]);c.setAttribute('r',p[2]);g.appendChild(c)})}
-dots('dots',[[397,213,8],[440,215,17],[465,258,13],[500,243,6],[518,258,7],[530,296,8],[437,347,14],[483,372,9],[470,330,5],[508,326,6],[490,1350,9],[420,1380,7],[395,1375,6],[430,1405,10]]);
-dots('greens',[[310,1362,4],[330,1355,6],[360,1352,5],[395,1346,4],[445,1352,6],[470,1360,4],[290,1380,4],[460,1952,6],[470,1975,5],[520,2040,5],[570,2060,6],[610,2070,4],[650,2085,5],[700,2080,5],[740,2090,4],[330,1375,3]]);
 </script>
 </body>
 </html>
